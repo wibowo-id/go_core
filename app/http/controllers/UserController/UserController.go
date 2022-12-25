@@ -24,3 +24,47 @@ func CurrentUser(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"message": "success", "data": u})
 }
+
+func Index(c *gin.Context) {
+
+}
+
+func Show(c *gin.Context) {
+
+}
+
+func Store(c *gin.Context) {
+
+}
+
+func Edit(c *gin.Context) {
+
+}
+
+func Update(c *gin.Context) {
+
+}
+
+func Delete(c *gin.Context) {
+
+}
+
+func UpdateStatus(c *gin.Context) {
+
+}
+
+func Import(c *gin.Context) {
+
+}
+
+func ExportCsv(c *gin.Context) {
+
+}
+
+func Profile(c *gin.Context) {
+
+}
+
+func SaveProfile(c *gin.Context) {
+
+}

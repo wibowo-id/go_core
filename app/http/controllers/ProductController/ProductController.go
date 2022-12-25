@@ -78,3 +78,12 @@ func Delete(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"message": "Berhasil dihapus"})
 }
+
+func Store(c *gin.Context) {
+
+}
+
+func Edit(c *gin.Context) {
+
+}
+
