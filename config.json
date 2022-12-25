@@ -1,0 +1,54 @@
+{
+    "app": {
+        "name": "sms-backend",
+        "debug": true,
+        "host": "127.0.0.1:3000",
+        "api_secret":"base64:gu1gr9wNmOl2zkArkj/2YKKI9ofjfY46Q9JzMuIGjWw="
+    },
+    "database": {
+        "default": "mysql",
+        "mongodb": {
+           "host": "127.0.0.1",
+            "database": "go",
+            "user": "",
+            "password": "",
+            "port": 27071
+        },
+        "mysql": {
+            "host": "127.0.0.1",
+            "database": "go",
+            "username": "root",
+            "password": "asdf1234",
+            "port": 3306
+        },
+        "firebase": {
+            "database_url":"https://sms.firebaseio.com",
+            "database_name":"sms",
+            "environment": "dev"
+        }
+    },
+    "onesignal": {
+        "timeout": 5,
+        "customer": {
+            "app_id": "bc65203e-dc43-42ce-8536-865a92e3e8df",
+            "app_key": "ZmRmNzg4NjAtMzVmNC00NGI5LTgxMTAtYzczNzRhM2MwM2U4"
+        },
+       "internal": {
+           "app_id": "50c6be90-7fda-4a07-ac7d-0c7858c2d181",
+            "api_key": "YjdhNzRkMGYtZmMzMi00NTk2LThmYjUtZWUyMWI2MjI0M2Fl"
+         }
+    },
+    "sms":{
+        "secret":"C13DDF3CA2E714A6548E7495E2A03F5E824EAAC9837CD7F159C67B90FB4B7342"
+    },
+    "bitly":{
+        "access_token":"22243f0e9ff37085d13661b5cd059d4dd4b88aa8"
+    },
+    "downloads_apps":{
+        "link":"http://bit.ly/sms",
+        "android":"http://bit.ly/sms",
+        "ios":"https://apple.co/sms"
+    },
+    "sms_messages"  :{
+    }
+}
