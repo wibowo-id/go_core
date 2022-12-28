@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/wibowo-id/sms-backend/app/models/entity"
-	"github.com/wibowo-id/sms-backend/config"
-	"github.com/wibowo-id/sms-backend/utils/token"
+	"github.com/wibowo-id/go_core/app/models/entity"
+	"github.com/wibowo-id/go_core/config"
+	"github.com/wibowo-id/go_core/utils/token"
 )
 
 func CurrentUser(c *gin.Context) {

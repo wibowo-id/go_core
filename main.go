@@ -8,12 +8,12 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	"github.com/wibowo-id/sms-backend/app/http/controllers/LoginController"
-	"github.com/wibowo-id/sms-backend/app/http/controllers/ProductController"
-	"github.com/wibowo-id/sms-backend/app/http/controllers/UserController"
-	"github.com/wibowo-id/sms-backend/app/http/middlewares"
-	initModel "github.com/wibowo-id/sms-backend/app/models"
-	cfg "github.com/wibowo-id/sms-backend/config"
+	"github.com/wibowo-id/go_core/app/http/controllers/LoginController"
+	"github.com/wibowo-id/go_core/app/http/controllers/ProductController"
+	"github.com/wibowo-id/go_core/app/http/controllers/UserController"
+	"github.com/wibowo-id/go_core/app/http/middlewares"
+	initModel "github.com/wibowo-id/go_core/app/models"
+	cfg "github.com/wibowo-id/go_core/config"
 )
 
 type App struct {

@@ -2,12 +2,13 @@ package LoginController
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/wibowo-id/sms-backend/app/models"
-	"github.com/wibowo-id/sms-backend/app/models/entity"
-	"github.com/wibowo-id/sms-backend/config"
-	"net/http"
+	"github.com/wibowo-id/go_core/app/models"
+	"github.com/wibowo-id/go_core/app/models/entity"
+	"github.com/wibowo-id/go_core/config"
 )
 
 type LoginInput struct {

@@ -3,12 +3,13 @@ package entity
 import (
 	"errors"
 	"fmt"
-	"github.com/wibowo-id/sms-backend/app/models"
-	"github.com/wibowo-id/sms-backend/utils/token"
-	"golang.org/x/crypto/bcrypt"
-	"gorm.io/gorm"
 	"html"
 	"strings"
+
+	"github.com/wibowo-id/go_core/app/models"
+	"github.com/wibowo-id/go_core/utils/token"
+	"golang.org/x/crypto/bcrypt"
+	"gorm.io/gorm"
 )
 
 type User struct {

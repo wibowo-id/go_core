@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/wibowo-id/sms-backend/utils/token"
+	"github.com/wibowo-id/go_core/utils/token"
 )
 
 func JwtAuthMiddleware() gin.HandlerFunc {

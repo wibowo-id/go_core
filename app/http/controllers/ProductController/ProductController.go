@@ -1,12 +1,13 @@
 package ProductController
 
 import (
-	"github.com/gin-gonic/gin"
-	prod "github.com/wibowo-id/sms-backend/app/models"
-	"github.com/wibowo-id/sms-backend/app/models/entity"
-	"gorm.io/gorm"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
+	prod "github.com/wibowo-id/go_core/app/models"
+	"github.com/wibowo-id/go_core/app/models/entity"
+	"gorm.io/gorm"
 )
 
 func Index(c *gin.Context) {
