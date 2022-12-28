@@ -1,4 +1,4 @@
-module github.com/wibowo-id/sms-backend
+module github.com/wibowo-id/go_core
 
 go 1.19
 
