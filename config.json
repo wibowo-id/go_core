@@ -3,7 +3,7 @@
         "name": "sms-backend",
         "debug": true,
         "host": "127.0.0.1:3000",
-        "api_secret":"base64:gu1gr9wNmOl2zkArkj/2YKKI9ofjfY46Q9JzMuIGjWw="
+        "app_secret":"gu1gr9wNmOl2zkArkj/2YKKI9ofjfY46Q9JzMuIGjWw="
     },
     "database": {
         "default": "mysql",

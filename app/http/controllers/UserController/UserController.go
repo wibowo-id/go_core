@@ -1,21 +1,28 @@
 package UserController
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/wibowo-id/sms-backend/app/models"
-	"github.com/wibowo-id/sms-backend/utils/token"
+	"fmt"
 	"net/http"
+
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-gonic/gin"
+	"github.com/wibowo-id/sms-backend/app/models/entity"
+	"github.com/wibowo-id/sms-backend/config"
+	"github.com/wibowo-id/sms-backend/utils/token"
 )
 
 func CurrentUser(c *gin.Context) {
 	userId, err := token.ExtractTokenID(c)
+	Session := config.Session{}
 
+	session := sessions.Default(c)
+	fmt.Println("session :", session.Get(Session.Email))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	u, err := models.GetUserByID(userId)
+	u, err := entity.GetUserByID(userId)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -23,6 +30,12 @@ func CurrentUser(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"message": "success", "data": u})
+}
+
+func Profile(c *gin.Context) {
+	Session := config.Session{}
+	session := sessions.Default(c)
+	c.JSON(http.StatusOK, gin.H{"message": "success", "data": session.Get(Session.Email)})
 }
 
 func Index(c *gin.Context) {
@@ -58,10 +71,6 @@ func Import(c *gin.Context) {
 }
 
 func ExportCsv(c *gin.Context) {
-
-}
-
-func Profile(c *gin.Context) {
 
 }
 

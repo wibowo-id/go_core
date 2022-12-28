@@ -1,7 +1,9 @@
-package models
+package entity
 
 import (
 	"errors"
+	"fmt"
+	"github.com/wibowo-id/sms-backend/app/models"
 	"github.com/wibowo-id/sms-backend/utils/token"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
@@ -17,9 +19,16 @@ type User struct {
 	Token    string `gorm:"type:text" json:"-"`
 }
 
+type UserLoggedIn struct {
+	Id    uint   `json:"id"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
+	Token string `json:"token"`
+}
+
 func (u *User) Save() (*User, error) {
 	var err error
-	err = DB.Create(&u).Error
+	err = models.DB.Create(&u).Error
 	if err != nil {
 		return &User{}, err
 	}
@@ -48,7 +57,8 @@ func LoginCheck(email, password string) (string, error) {
 	var err error
 
 	u := User{}
-	err = DB.Model(User{}).Where("email = ?", email).Take(&u).Error
+	err = models.DB.Model(User{}).Where("email = ?", email).Take(&u).Error
+	fmt.Println("err : ", email)
 	if err != nil {
 		return "", err
 	}
@@ -71,7 +81,21 @@ func GetUserByID(uid uint) (User, error) {
 
 	var u User
 
-	if err := DB.First(&u, uid).Error; err != nil {
+	if err := models.DB.First(&u, uid).Error; err != nil {
+		return u, errors.New("User not found!")
+	}
+
+	u.PrepareGive()
+
+	return u, nil
+
+}
+
+func GetUserByEmail(email string) (User, error) {
+
+	var u User
+
+	if err := models.DB.Where("email = ?", email).First(&u).Error; err != nil {
 		return u, errors.New("User not found!")
 	}
 
