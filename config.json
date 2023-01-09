@@ -21,6 +21,13 @@
             "password": "asdf1234",
             "port": 3306
         },
+        "postgresql": {
+            "host": "127.0.0.1",
+            "database": "go",
+            "username": "postgres",
+            "password": "asdf1234",
+            "port": 5432
+        },
         "firebase": {
             "database_url":"https://sms.firebaseio.com",
             "database_name":"sms",

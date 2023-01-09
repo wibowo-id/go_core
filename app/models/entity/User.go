@@ -13,7 +13,7 @@ import (
 )
 
 type User struct {
-	Id       uint   `gorm:"primary_key:auto_increment" json:"id"`
+	Id       uint   `gorm:"primarykey:auto_increment" json:"id"`
 	Name     string `gorm:"type:varchar(255)" json:"name"`
 	Email    string `gorm:"uniqueIndex;type:varchar(255)" json:"email"`
 	Password string `gorm:"->;<-;not null" json:"-"`

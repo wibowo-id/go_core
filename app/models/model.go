@@ -2,37 +2,30 @@ package models
 
 import (
 	"fmt"
-	"github.com/joho/godotenv"
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
-	"os"
 )
+
+type PgInfo struct {
+	Hostname string
+	Database string
+	Username string
+	Password string
+	Port     string
+}
 
 var DB *gorm.DB
 
-func ConnectDatabase() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-
-	Dbdriver := os.Getenv("DB_DRIVER")
-	DbHost := os.Getenv("DB_HOST")
-	DbUser := os.Getenv("DB_USER")
-	DbPassword := os.Getenv("DB_PASSWORD")
-	DbName := os.Getenv("DB_NAME")
-	DbPort := os.Getenv("DB_PORT")
-
-	DBURL := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", DbUser, DbPassword, DbHost, DbPort, DbName)
-
-	database, err := gorm.Open(mysql.Open(DBURL), &gorm.Config{})
+func (i *PgInfo) ConnectDatabase() {
+	dsn := "host=" + i.Hostname + " user=" + i.Username + " password=" + i.Password + " dbname=" + i.Database + " port=" + i.Port + " sslmode=disable TimeZone=Asia/Jakarta"
+	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		fmt.Println("Cannot connect to database ", Dbdriver)
+		fmt.Println("Cannot connect to database PortgreSQL")
 		log.Fatal("connection error:", err)
 	} else {
-		fmt.Println("We are connected to the database ", Dbdriver)
+		fmt.Println("We are connected to the database PortgreSQL")
 	}
 
 	err = database.AutoMigrate()
